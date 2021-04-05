@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Sintaxe Markdown | Dominando RMarkdown</title>
+  <meta name="description" content="Esse livro é um material didático para você dominar a produção de relatórios com RMarkdown" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Sintaxe Markdown | Dominando RMarkdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Esse livro é um material didático para você dominar a produção de relatórios com RMarkdown" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Sintaxe Markdown | Dominando RMarkdown" />
+  
+  <meta name="twitter:description" content="Esse livro é um material didático para você dominar a produção de relatórios com RMarkdown" />
+  
+
+<meta name="author" content="Felipe Sodré Mendes Barros" />
+
+
+<meta name="date" content="2021-04-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="CriacaoDoc.html"/>
+<link rel="next" href="TrechoR.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Dominando RMarkdown</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Domine <em>RMarkdown</em></a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#markdown"><i class="fa fa-check"></i><b>2.1</b> Sobre o <em>Markdown</em></a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#rmarkdown"><i class="fa fa-check"></i><b>2.2</b> Sobre o <em>RMarkdown</em></a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vantagens"><i class="fa fa-check"></i><b>2.3</b> Vantagens</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#instalação"><i class="fa fa-check"></i><b>2.4</b> Instalação</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#AntesComecar"><i class="fa fa-check"></i><b>2.5</b> Antes de começar</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="CriacaoDoc.html"><a href="CriacaoDoc.html"><i class="fa fa-check"></i><b>3</b> Criação do documento</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="CriacaoDoc.html"><a href="CriacaoDoc.html#ExI"><i class="fa fa-check"></i><b>3.0.1</b> Exercício I (alterando formato <em>output</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="SintaxeMarkdown.html"><a href="SintaxeMarkdown.html"><i class="fa fa-check"></i><b>4</b> Sintaxe Markdown</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="SintaxeMarkdown.html"><a href="SintaxeMarkdown.html#exercício-ii-sintaxe-markdown"><i class="fa fa-check"></i><b>4.0.1</b> Exercício II (Sintaxe markdown)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="TrechoR.html"><a href="TrechoR.html"><i class="fa fa-check"></i><b>5</b> Trabalhando com códigos R</a><ul>
+<li class="chapter" data-level="5.1" data-path="TrechoR.html"><a href="TrechoR.html#RLabels"><i class="fa fa-check"></i><b>5.1</b> <em>labels</em></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="codeChunkConf.html"><a href="codeChunkConf.html"><i class="fa fa-check"></i><b>6</b> <em>configurações do <strong>code chunk</strong> </em></a></li>
+<li class="chapter" data-level="7" data-path="InserirPlot.html"><a href="InserirPlot.html"><i class="fa fa-check"></i><b>7</b> Inserir <em>plot</em></a><ul>
+<li class="chapter" data-level="7.1" data-path="InserirPlot.html"><a href="InserirPlot.html#InserirLegendaPlot"><i class="fa fa-check"></i><b>7.1</b> Inserir legenda ao <em>plot</em></a><ul>
+<li class="chapter" data-level="7.1.1" data-path="InserirPlot.html"><a href="InserirPlot.html#exercício-opções-de-codigo-r"><i class="fa fa-check"></i><b>7.1.1</b> Exercício (opções de codigo R)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inline-code.html"><a href="inline-code.html"><i class="fa fa-check"></i><b>8</b> <em>inline code</em></a></li>
+<li class="chapter" data-level="9" data-path="inserindo-tabela.html"><a href="inserindo-tabela.html"><i class="fa fa-check"></i><b>9</b> Inserindo tabela</a><ul>
+<li class="chapter" data-level="9.1" data-path="inserindo-tabela.html"><a href="inserindo-tabela.html#TableKnitr"><i class="fa fa-check"></i><b>9.1</b> Knitir</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="inserindo-tabela.html"><a href="inserindo-tabela.html#adicionando-titulo-à-tabela"><i class="fa fa-check"></i><b>9.1.1</b> Adicionando titulo à tabela</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="InserindoImagem.html"><a href="InserindoImagem.html"><i class="fa fa-check"></i><b>10</b> Inserindo imagem</a><ul>
+<li class="chapter" data-level="10.1" data-path="InserindoImagem.html"><a href="InserindoImagem.html#forçando-ordem-de-aparição-das-imagens"><i class="fa fa-check"></i><b>10.1</b> Forçando ordem de aparição das imagens</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="crossRef.html"><a href="crossRef.html"><i class="fa fa-check"></i><b>11</b> Referência cruzada</a><ul>
+<li class="chapter" data-level="11.1" data-path="crossRef.html"><a href="crossRef.html#de-gráfico-plot"><i class="fa fa-check"></i><b>11.1</b> De gráfico (<em>plot</em>)</a></li>
+<li class="chapter" data-level="11.2" data-path="crossRef.html"><a href="crossRef.html#de-imagem"><i class="fa fa-check"></i><b>11.2</b> De imagem</a></li>
+<li class="chapter" data-level="11.3" data-path="crossRef.html"><a href="crossRef.html#de-seção"><i class="fa fa-check"></i><b>11.3</b> De seção</a></li>
+<li class="chapter" data-level="11.4" data-path="crossRef.html"><a href="crossRef.html#de-tabela"><i class="fa fa-check"></i><b>11.4</b> De tabela</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="nota-de-roda-pé.html"><a href="nota-de-roda-pé.html"><i class="fa fa-check"></i><b>12</b> Nota de roda-pé</a><ul>
+<li class="chapter" data-level="12.1" data-path="nota-de-roda-pé.html"><a href="nota-de-roda-pé.html#op1"><i class="fa fa-check"></i><b>12.1</b> Primeira possibilidade</a></li>
+<li class="chapter" data-level="12.2" data-path="nota-de-roda-pé.html"><a href="nota-de-roda-pé.html#op2"><i class="fa fa-check"></i><b>12.2</b> Segunda possibilidade</a></li>
+<li class="chapter" data-level="12.3" data-path="nota-de-roda-pé.html"><a href="nota-de-roda-pé.html#RodapeImportante"><i class="fa fa-check"></i><b>12.3</b> Pontos importantes:</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html"><i class="fa fa-check"></i><b>13</b> referências bibliográficas</a><ul>
+<li class="chapter" data-level="13.1" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html#adicionando-autor-abstract-e-afiliações"><i class="fa fa-check"></i><b>13.1</b> Adicionando autor, abstract e afiliações</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="notações-matemáticas.html"><a href="notações-matemáticas.html"><i class="fa fa-check"></i><b>14</b> Notações matemáticas</a><ul>
+<li class="chapter" data-level="14.1" data-path="notações-matemáticas.html"><a href="notações-matemáticas.html#inline"><i class="fa fa-check"></i><b>14.1</b> <em>Inline</em></a></li>
+<li class="chapter" data-level="14.2" data-path="notações-matemáticas.html"><a href="notações-matemáticas.html#em-destaque"><i class="fa fa-check"></i><b>14.2</b> <em>Em destaque</em></a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="MarkdownConfig.html"><a href="MarkdownConfig.html"><i class="fa fa-check"></i><b>15</b> Configuração Markdown</a><ul>
+<li class="chapter" data-level="15.1" data-path="MarkdownConfig.html"><a href="MarkdownConfig.html#numerar-as-seçõescapítulos"><i class="fa fa-check"></i><b>15.1</b> Numerar as seções/capítulos</a></li>
+<li class="chapter" data-level="15.2" data-path="MarkdownConfig.html"><a href="MarkdownConfig.html#table-of-cotent"><i class="fa fa-check"></i><b>15.2</b> Table of cotent</a></li>
+<li class="chapter" data-level="15.3" data-path="MarkdownConfig.html"><a href="MarkdownConfig.html#masInfos"><i class="fa fa-check"></i><b>15.3</b> Mais infos</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="refs.html"><a href="refs.html"><i class="fa fa-check"></i><b>16</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Dominando <em>RMarkdown</em></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="SintaxeMarkdown" class="section level1">
+<h1><span class="header-section-number">Capítulo 4</span> Sintaxe Markdown</h1>
+<p>Como mencionado anteriormente, ao usar um arquivo <em>*.Rmd</em> temos a possibilidade de mesclar a linguagem de formatação de texto <em>Markdown</em> com códigos <em>R</em>. Vamos começar entendendo a sintaxe <em>Markdown</em>.</p>
+<p>A sintaxe <em>Markdown</em> é toda relacionada à <strong>formatação de texto</strong>. Como vocês puderam observar ao <em>renderizar</em> o documento padrão (exercício anterior), o símbolo ## define que naquela linha estará o texto com um título de segunda ordem no nível hierarquico, já que o título de primeira ordem seria definido com apenas um #. A hierarquia de títulos é, portanto, definida pela sequência de #. Por exemplo, na figura :</p>
+<ul>
+<li>O texto “Elaboração de relatórios com RMarkdown” será o título do documento, por possuir apenas um #.</li>
+<li>Logo em seguida, será incluído um título de segunda hierarquia (subtítulo) com texto “Markdown” (já que o mesmo é precedido por dois #).<br />
+</li>
+<li>A sequencia segue até satisfazer o nível hierarquico de títulos do seu documento;</li>
+</ul>
+<p>Uma coisa bem legal desse sistema de formatação de texto é que, <strong>por ser declarativo por texto (ou comando em sintaxe <em>Markdown</em>), fica fácil colaborar com outras pessoas sem perder as configurações</strong>, além de deixar claro a estrutura do texto. Isso desde que sempre se edite o arquivo <em>Rmd.</em> Caso contrário isso dependerá dos conhecimentos dos usuários de softwares de eedição de texto, como o <em>MS Word</em>.</p>
+<p>Outros elementos importantes para formatação de texto são:</p>
+<ul>
+<li><strong>Negrito</strong>: Para colocar uma palavra ou frase em negrito, basta usar dois asterístico (**) para iniciar o trecho e dois asterístico para fechar o texto a ser enfatizado (ex.: **trecho em negrito**).<br />
+</li>
+<li><em>Itálico</em>: Similar ao <strong>negrito</strong>, mas usa-se apenas um asterístico no início e outro no fim (ex.: *trecho em italico*).<br />
+</li>
+<li><del>riscado</del>: Basta inserir dois tis (~~) ao início e outros dois ao fim do trecho a ser riscado (ex.: ~~trecho riscado~~);</li>
+</ul>
+<p><strong>Pontos importantes</strong>:</p>
+<blockquote>
+<p>Os elementos de formatação de texto, como <strong>negrito</strong>, <em>italico</em>, <del>riscado</del>, dentre outros, deverão ser seguidos por texto, sem espaço entre o elemento de formatação e o texto a ser formatado. Contudo, já com relação aos títulos, é necessário dar espaço entre o # e o texto a receber a formatação de titulo.</p>
+</blockquote>
+<div id="exercício-ii-sintaxe-markdown" class="section level3">
+<h3><span class="header-section-number">4.0.1</span> Exercício II (Sintaxe markdown)</h3>
+<ol style="list-style-type: decimal">
+<li>Colocar todo o primeiro parágrado como riscado;</li>
+<li>Colocar algumas paravras em <strong>negrito</strong>;<br />
+</li>
+<li>Colocar outras palavras em <em>intálico</em>;<br />
+</li>
+<li>Alterar a hierarquia dos títulos;<br />
+</li>
+<li>Cria um novo título de primeira hierarquia;<br />
+</li>
+<li>Renderize em formato <em>PDF</em>. Analise o indice do documento. Obedeceu a hierarquia definida?<br />
+</li>
+<li>Renderize em formato <em>.doc</em>. Analise o indice do documento. Obedeceu a hierarquia definida?</li>
+</ol>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="CriacaoDoc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="TrechoR.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Dominando *RMarkdown*.pdf", "Dominando *RMarkdown*.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+---
+title: "Introdução"
+author: "Felipe Sodré Mendes Barros"
+date: "January 18, 2019"
+output: pdf_document
+---
+
+# Computação científica e análise de dados com R
+Mais que análise de dados: computação científica: gestão de conhecimento; reproducibilidade; colaboração; otimização de análises; análise de grande quantidade de dados;
+
+A ideia deste material é sistematizar algumas experiencias que tive e, buscar uma abordagem pedagógica frente a distintos materiais disponíveis na internet relacionada a programação e análise de dados com R. Desses materiais, cito:
+[Geocomutation with R](https://geocompr.robinlovelace.net/); [R for data science](https://r4ds.had.co.nz/); [Efficient R programming](https://csgillespie.github.io/efficientR/); [Spatial Data Science](https://keen-swartz-3146c4.netlify.com); [Visualização de dados com R](http://sillasgonzaga.com/material/curso_visualizacao/); [Tidyverse style guide](https://style.tidyverse.org/);   
+
+
+sobre paralelização: http://www.francescobailo.net/2019/01/are-you-parallelizing-your-raster-operations-you-should/

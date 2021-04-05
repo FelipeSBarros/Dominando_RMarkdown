@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 13 referências bibliográficas | Dominando RMarkdown</title>
+  <meta name="description" content="Esse livro é um material didático para você dominar a produção de relatórios com RMarkdown" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 13 referências bibliográficas | Dominando RMarkdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Esse livro é um material didático para você dominar a produção de relatórios com RMarkdown" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 13 referências bibliográficas | Dominando RMarkdown" />
+  
+  <meta name="twitter:description" content="Esse livro é um material didático para você dominar a produção de relatórios com RMarkdown" />
+  
+
+<meta name="author" content="Felipe Sodré Mendes Barros" />
+
+
+<meta name="date" content="2021-04-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="nota-de-roda-pé.html"/>
+<link rel="next" href="notações-matemáticas.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Dominando RMarkdown</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Domine <em>RMarkdown</em></a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#markdown"><i class="fa fa-check"></i><b>2.1</b> Sobre o <em>Markdown</em></a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#rmarkdown"><i class="fa fa-check"></i><b>2.2</b> Sobre o <em>RMarkdown</em></a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vantagens"><i class="fa fa-check"></i><b>2.3</b> Vantagens</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#instalação"><i class="fa fa-check"></i><b>2.4</b> Instalação</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#AntesComecar"><i class="fa fa-check"></i><b>2.5</b> Antes de começar</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="CriacaoDoc.html"><a href="CriacaoDoc.html"><i class="fa fa-check"></i><b>3</b> Criação do documento</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="CriacaoDoc.html"><a href="CriacaoDoc.html#ExI"><i class="fa fa-check"></i><b>3.0.1</b> Exercício I (alterando formato <em>output</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="SintaxeMarkdown.html"><a href="SintaxeMarkdown.html"><i class="fa fa-check"></i><b>4</b> Sintaxe Markdown</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="SintaxeMarkdown.html"><a href="SintaxeMarkdown.html#exercício-ii-sintaxe-markdown"><i class="fa fa-check"></i><b>4.0.1</b> Exercício II (Sintaxe markdown)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="TrechoR.html"><a href="TrechoR.html"><i class="fa fa-check"></i><b>5</b> Trabalhando com códigos R</a><ul>
+<li class="chapter" data-level="5.1" data-path="TrechoR.html"><a href="TrechoR.html#RLabels"><i class="fa fa-check"></i><b>5.1</b> <em>labels</em></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="codeChunkConf.html"><a href="codeChunkConf.html"><i class="fa fa-check"></i><b>6</b> <em>configurações do <strong>code chunk</strong> </em></a></li>
+<li class="chapter" data-level="7" data-path="InserirPlot.html"><a href="InserirPlot.html"><i class="fa fa-check"></i><b>7</b> Inserir <em>plot</em></a><ul>
+<li class="chapter" data-level="7.1" data-path="InserirPlot.html"><a href="InserirPlot.html#InserirLegendaPlot"><i class="fa fa-check"></i><b>7.1</b> Inserir legenda ao <em>plot</em></a><ul>
+<li class="chapter" data-level="7.1.1" data-path="InserirPlot.html"><a href="InserirPlot.html#exercício-opções-de-codigo-r"><i class="fa fa-check"></i><b>7.1.1</b> Exercício (opções de codigo R)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inline-code.html"><a href="inline-code.html"><i class="fa fa-check"></i><b>8</b> <em>inline code</em></a></li>
+<li class="chapter" data-level="9" data-path="inserindo-tabela.html"><a href="inserindo-tabela.html"><i class="fa fa-check"></i><b>9</b> Inserindo tabela</a><ul>
+<li class="chapter" data-level="9.1" data-path="inserindo-tabela.html"><a href="inserindo-tabela.html#TableKnitr"><i class="fa fa-check"></i><b>9.1</b> Knitir</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="inserindo-tabela.html"><a href="inserindo-tabela.html#adicionando-titulo-à-tabela"><i class="fa fa-check"></i><b>9.1.1</b> Adicionando titulo à tabela</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="InserindoImagem.html"><a href="InserindoImagem.html"><i class="fa fa-check"></i><b>10</b> Inserindo imagem</a><ul>
+<li class="chapter" data-level="10.1" data-path="InserindoImagem.html"><a href="InserindoImagem.html#forçando-ordem-de-aparição-das-imagens"><i class="fa fa-check"></i><b>10.1</b> Forçando ordem de aparição das imagens</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="crossRef.html"><a href="crossRef.html"><i class="fa fa-check"></i><b>11</b> Referência cruzada</a><ul>
+<li class="chapter" data-level="11.1" data-path="crossRef.html"><a href="crossRef.html#de-gráfico-plot"><i class="fa fa-check"></i><b>11.1</b> De gráfico (<em>plot</em>)</a></li>
+<li class="chapter" data-level="11.2" data-path="crossRef.html"><a href="crossRef.html#de-imagem"><i class="fa fa-check"></i><b>11.2</b> De imagem</a></li>
+<li class="chapter" data-level="11.3" data-path="crossRef.html"><a href="crossRef.html#de-seção"><i class="fa fa-check"></i><b>11.3</b> De seção</a></li>
+<li class="chapter" data-level="11.4" data-path="crossRef.html"><a href="crossRef.html#de-tabela"><i class="fa fa-check"></i><b>11.4</b> De tabela</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="nota-de-roda-pé.html"><a href="nota-de-roda-pé.html"><i class="fa fa-check"></i><b>12</b> Nota de roda-pé</a><ul>
+<li class="chapter" data-level="12.1" data-path="nota-de-roda-pé.html"><a href="nota-de-roda-pé.html#op1"><i class="fa fa-check"></i><b>12.1</b> Primeira possibilidade</a></li>
+<li class="chapter" data-level="12.2" data-path="nota-de-roda-pé.html"><a href="nota-de-roda-pé.html#op2"><i class="fa fa-check"></i><b>12.2</b> Segunda possibilidade</a></li>
+<li class="chapter" data-level="12.3" data-path="nota-de-roda-pé.html"><a href="nota-de-roda-pé.html#RodapeImportante"><i class="fa fa-check"></i><b>12.3</b> Pontos importantes:</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html"><i class="fa fa-check"></i><b>13</b> referências bibliográficas</a><ul>
+<li class="chapter" data-level="13.1" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html#adicionando-autor-abstract-e-afiliações"><i class="fa fa-check"></i><b>13.1</b> Adicionando autor, abstract e afiliações</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="notações-matemáticas.html"><a href="notações-matemáticas.html"><i class="fa fa-check"></i><b>14</b> Notações matemáticas</a><ul>
+<li class="chapter" data-level="14.1" data-path="notações-matemáticas.html"><a href="notações-matemáticas.html#inline"><i class="fa fa-check"></i><b>14.1</b> <em>Inline</em></a></li>
+<li class="chapter" data-level="14.2" data-path="notações-matemáticas.html"><a href="notações-matemáticas.html#em-destaque"><i class="fa fa-check"></i><b>14.2</b> <em>Em destaque</em></a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="MarkdownConfig.html"><a href="MarkdownConfig.html"><i class="fa fa-check"></i><b>15</b> Configuração Markdown</a><ul>
+<li class="chapter" data-level="15.1" data-path="MarkdownConfig.html"><a href="MarkdownConfig.html#numerar-as-seçõescapítulos"><i class="fa fa-check"></i><b>15.1</b> Numerar as seções/capítulos</a></li>
+<li class="chapter" data-level="15.2" data-path="MarkdownConfig.html"><a href="MarkdownConfig.html#table-of-cotent"><i class="fa fa-check"></i><b>15.2</b> Table of cotent</a></li>
+<li class="chapter" data-level="15.3" data-path="MarkdownConfig.html"><a href="MarkdownConfig.html#masInfos"><i class="fa fa-check"></i><b>15.3</b> Mais infos</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="refs.html"><a href="refs.html"><i class="fa fa-check"></i><b>16</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Dominando <em>RMarkdown</em></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="referências-bibliográficas" class="section level1">
+<h1><span class="header-section-number">Capítulo 13</span> referências bibliográficas</h1>
+<p>Aqui começamos a fazer a transição de um simples relatório a um potencial artigo… Vamos incluir bibliografia!</p>
+<p>Qualquer gerenciador de bibliografias (<strong>Zotero</strong>, <strong>Mendeley</strong>, etc) possibilita extrair os artigos no formato <em>.bib</em>. Se vocês selecionarem os artigos/livros que vão usar e exportá-los como <em>.bib</em> e abri-los em um editor do texto<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>, poderá ver algo assim:</p>
+<pre><code>@article{Akcakaya2009,
+abstract = {The World Conservation Union (IUCN) defined a set of categories for conservation status sup- ported by decision rules based on thresholds of parameters such as distributional range, population size, pop- ulation history, and risk of extinction. [...] We propose a method of dealing with uncertainty that can be applied to the current IUCN criteria without altering the rules, thresholds, or intent of these criteria. Our method propagates the uncertainty in the input parameters and assigns the evaluated spe- cies either to a single category (as the current criteria do) or to a range of plausible categories, depending on the nature and extent of uncertainties.},
+author = {Akcakaya, H Resit and Ferson, Scott and Burgman, Mark a and Keith, David a and Georgina, M and Todd, Charles R},
+doi = {10.1046/j.1523-1739.2000.99125.x},
+file = {:home/felipe/Documentos/ConsistentIUCN.pdf:pdf},
+issn = {0888-8892},
+journal = {Conservation biology},
+keywords = {Artigo pos,Revisao{\_}Intro},
+mendeley-tags = {Artigo pos,Revisao{\_}Intro},
+number = {4},
+pages = {1001--1013},
+title = {{Making Consistent IUCN Classifications under Uncertainty}},
+url = {http://onlinelibrary.wiley.com/doi/10.1046/j.1523-1739.2000.99125.x/full},
+volume = {14},
+year = {2009}
+}</code></pre>
+<p>Uma vez que tenhamos exportado os artigos a serem usados para o formato <em>.bib</em> e com o arquivo na mesma pasta onde estamos trabalhando nosso texto,<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> precisaremos informar ao <em>Markdown</em> que vamos usar a opção de bibliografia e qual será o arquivo <em>.bib</em> a ser usado. Para isso, adicionaremos à confirguração do <em>RMarkdown</em> a seguinte linha: <code>bibliography: Referencias.bib</code>.</p>
+<p>Repare como está a configuração deste documento que vc está lendo:</p>
+<pre><code>---
+title: &quot;Relatorios com RMarkdown&quot;
+date: 12/02/2019
+output:
+  pdf_document: default
+  word_document: default
+bibliography: Referencias.bib
+---</code></pre>
+<p>Neste caso estou dizendo que o arquivo com as referências bibliográficas estão no arquivo “Referencias.bib”.</p>
+<p>Tendo feito isso, agora já posso fazer as citações, da seguinte forma:<br />
+<code>[@Akcakaya2009]</code> = <span class="citation">(Akcakaya et al. <a href="#ref-Akcakaya2009">2009</a>)</span><br />
+ou<br />
+<code>@Akcakaya2009</code> = <span class="citation">Akcakaya et al. (<a href="#ref-Akcakaya2009">2009</a>)</span><br />
+Caso queiramos adicionar mais refencias:<br />
+<code>[@Akcakaya2009, @Akcakaya2009]</code> = <span class="citation">(Akcakaya et al. <a href="#ref-Akcakaya2009">2009</a>, <span class="citation">@Akcakaya2009</span>)</span><br />
+ou<br />
+<code>@Akcakaya2009, @Akcakaya2009</code> = <span class="citation">Akcakaya et al. (<a href="#ref-Akcakaya2009">2009</a>)</span>, <span class="citation">Akcakaya et al. (<a href="#ref-Akcakaya2009">2009</a>)</span></p>
+<p>Legal. Até agora, já adicionamos nossa base de dados de referências, fizemos a citação. Mas como fica a bibliografia?</p>
+<p>Basta adicionarmos um capitulo <code>## References</code> (com qualque níve de hierarquia) e pronto! O <em>RMarkdown</em> já entenderá que nessa seção deverão constar todos e apenas aquelas referências que constan em nosso <em>.bib</em> que tenham sido usadas. E por mais que usemos mais de uma citação para um mesmo artigo, só aparecerá uma referencia…</p>
+<blockquote>
+<p>E aí: Vai querer continuar usando o Word?</p>
+</blockquote>
+<p>Outra coisa, pelo fato de o <em>.bib</em> se um doc de texto, o mesmo pode ser versionado. Outros colaboradores poderão adicionar novas referências e fazer citações e tudo será controlado por versionamento…</p>
+<p><strong>A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no <em>.bib</em>. Ou seja, se seu gerenciador de referências não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.</strong></p>
+<div id="adicionando-autor-abstract-e-afiliações" class="section level2">
+<h2><span class="header-section-number">13.1</span> Adicionando autor, abstract e afiliações</h2>
+<p>Para adicionar autor e abstract teremos que adicionar à área de configuração do <em>RMarkdown</em>:</p>
+<pre><code>author:
+- Felipe S. M. Barros
+abstract: |
+  Aqui vai o abstract</code></pre>
+<p>Você pode adicionar quantos autores quiser;</p>
+<p><strong>FALTA VER COMO INFORMAR UNIVERSIDADE DOS AUTORES</strong></p>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-Akcakaya2009">
+<p>Akcakaya, H Resit, Scott Ferson, Mark a Burgman, David a Keith, M Georgina, and Charles R Todd. 2009. “Making Consistent IUCN Classifications under Uncertainty.” <em>Conservation Biology</em> 14 (4): 1001–13. <a href="https://doi.org/10.1046/j.1523-1739.2000.99125.x">https://doi.org/10.1046/j.1523-1739.2000.99125.x</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>editor de texto não é a mesma coisa que Word! Abra com um <strong>notepad</strong><a href="referências-bibliográficas.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>Caso o arquivo esteja em uma pasta diferentes, será necessário informar o cominho à pasta<a href="referências-bibliográficas.html#fnref6" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nota-de-roda-pé.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="notações-matemáticas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Dominando *RMarkdown*.pdf", "Dominando *RMarkdown*.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

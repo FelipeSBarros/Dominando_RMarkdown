@@ -1,0 +1,28 @@
+--- 
+title: "Dominando *RMarkdown*"
+author: "Felipe Sodré Mendes Barros"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib, Referencias.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Esse livro é um material didático para você dominar a produção de relatórios com *RMarkdown*"
+---
+
+# Prerequisites
+
+Este livro está baseado em *RMarkdown* e talvez você tenha que instalar alguma coisa de *LaTex*.
+
+```{r eval=FALSE}
+install.packages("rmarkdown")
+# 'knitr'
+```
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
