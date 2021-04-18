@@ -10,17 +10,61 @@ link-citations: yes
 description: "Esse livro é um material didático para você dominar a produção de relatórios com *RMarkdown*"
 ---
 
-# Prerequisites
+# Dominando *RMarkdown* {#intro}
 
-Este livro está baseado em *RMarkdown* e talvez você tenha que instalar alguma coisa de *LaTex*.
+Olá, seja bem-vindo ao "Dominando RMarkdown"!
+
+Este material surge a partir do necessidade que sempre tive em buscar informações na internet de "como fazer algo" no `RMarkdown` (por exemplo, como criar nota de roda pé, como fazer referência cruzada, etc). Então comecei a organizar e sistematizar essas dúvidas, tentando incluir-las em uma abordagem pedagógica.
+
+Este material (livro?) é aberto à colaboração. Pretendo ir melhorando ao longo do tempo, mantendo o conteúdo atualizado. Se voê encontrar algum erro ou se tem algum dúvida ou que sugerir alguma melhoria, basta entrar em contato:
+
+* e-mail - felipe.b4rros@gmail.com
+* twitter.com/FelipeSMBarros
+* github.com/FelipeB4rros
+
+## Colaboradores
+`# TODO listar colaboradores ou linkar à pg do github`
+
+## Sobre o *Markdown*  {#markdown}
+
+O [`Markdown`](https://pt.wikipedia.org/wiki/Markdown) é uma linguagem criada para facilitar a formatação de texto. A ideia é que a partir dessa linguagem você possa transformar seu texto em um documento de *Word*, *HTML* ou até mesmo *PDF*, tornando a formatação do texto mais simples e **objetiva**.
+
+ 
+## Sobre o *RMarkdown*  {#rmarkdown}
+
+O [`RMarkdown`](https://rmarkdown.rstudio.com/) é um pacote do R que nos permite produzir relatórios, textos acadêmicos e qualquer outro tipo de comunicação, integrar a linguagem `R` com o `Markdown`.
+
+Dessa simples junção, podemos criar documentos ao mesmo tempo em que desenvolvemos nossas análises. Ou seja, ao mesmo tempo em que estamos analisando dados com `R` já podemos ir criando um relatório, por exemplo.  
+
+Com o `RMarkdown`, pode-se também elaborar outros tipos de documentos, como apresentações. Vamos ver primeiro como elaborar documentos de texto e, mais à frente, vemos como trabalhar com apresentações.  
+
+`# todo falar sobre os outros pacotes relacionados kntir, pandoc, etc - não necessariamente aqui. }` Talvez em "AntesComecar"
+[ex](https://bookdown.org/yihui/bookdown/pandoc.html)
+
+## Vantagens  
+
+Usar o *RMarkdown* traz várias vangens, das quais cito:
+
+- Fomenta a reproducibilidade;  
+- Permite que mais de uma pessoa colabore em relatórios (usando *Git* e *GitHub*);  
+- Permite apresentar o código usado, caso isso seja pretinente;  
+- Facilita a criação e incorporação de gráficos/tabelas e dados do projeto ao relatório;  
+
+# Pré-requisitos
+
+Este livro está baseado em `RMarkdown` e talvez você tenha que instalar alguma coisa de `LaTex`.
 
 ```{r eval=FALSE}
-install.packages("rmarkdown")
+# todo desenvolver sobre pacotes a serem usados
+# instalando
+install.packages("rmarkdown", dependencies = TRUE)
 # 'knitr'
 ```
 
+Você peceberá que outras bibliotecas tbm serão instaladas.  
 
 ```{r include=FALSE}
+# TODO desenvolver sobre isso
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'

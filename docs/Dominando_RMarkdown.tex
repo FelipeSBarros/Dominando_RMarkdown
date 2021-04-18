@@ -1,0 +1,1002 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Dominando RMarkdown},
+            pdfauthor={Felipe Sodré Mendes Barros},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Dominando \emph{RMarkdown}}
+\author{Felipe Sodré Mendes Barros}
+\date{2021-04-18}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{intro}{%
+\chapter{\texorpdfstring{Dominando \emph{RMarkdown}}{Dominando RMarkdown}}\label{intro}}
+
+Olá, seja bem-vindo ao ``Dominando RMarkdown''!
+
+Este material surge a partir do necessidade que sempre tive em buscar informações na internet de ``como fazer algo'' no \texttt{RMarkdown} (por exemplo, como criar nota de roda pé, como fazer referência cruzada, etc). Então comecei a organizar e sistematizar essas dúvidas, tentando incluir-las em uma abordagem pedagógica.
+
+Este material (livro?) é aberto à colaboração. Pretendo ir melhorando ao longo do tempo, mantendo o conteúdo atualizado. Se voê encontrar algum erro ou se tem algum dúvida ou que sugerir alguma melhoria, basta entrar em contato:
+
+\begin{itemize}
+\tightlist
+\item
+  e-mail - \href{mailto:felipe.b4rros@gmail.com}{\nolinkurl{felipe.b4rros@gmail.com}}
+\item
+  twitter.com/FelipeSMBarros
+\item
+  github.com/FelipeB4rros
+\end{itemize}
+
+\hypertarget{colaboradores}{%
+\section{Colaboradores}\label{colaboradores}}
+
+\texttt{\#\ TODO\ listar\ colaboradores\ ou\ linkar\ à\ pg\ do\ github}
+
+\hypertarget{markdown}{%
+\section{\texorpdfstring{Sobre o \emph{Markdown}}{Sobre o Markdown}}\label{markdown}}
+
+O \href{https://pt.wikipedia.org/wiki/Markdown}{\texttt{Markdown}} é uma linguagem criada para facilitar a formatação de texto. A ideia é que a partir dessa linguagem você possa transformar seu texto em um documento de \emph{Word}, \emph{HTML} ou até mesmo \emph{PDF}, tornando a formatação do texto mais simples e \textbf{objetiva}.
+
+\hypertarget{rmarkdown}{%
+\section{\texorpdfstring{Sobre o \emph{RMarkdown}}{Sobre o RMarkdown}}\label{rmarkdown}}
+
+O \href{https://rmarkdown.rstudio.com/}{\texttt{RMarkdown}} é um pacote do R que nos permite produzir relatórios, textos acadêmicos e qualquer outro tipo de comunicação, integrar a linguagem \texttt{R} com o \texttt{Markdown}.
+
+Dessa simples junção, podemos criar documentos ao mesmo tempo em que desenvolvemos nossas análises. Ou seja, ao mesmo tempo em que estamos analisando dados com \texttt{R} já podemos ir criando um relatório, por exemplo.
+
+Com o \texttt{RMarkdown}, pode-se também elaborar outros tipos de documentos, como apresentações. Vamos ver primeiro como elaborar documentos de texto e, mais à frente, vemos como trabalhar com apresentações.
+
+\texttt{\#\ todo\ falar\ sobre\ os\ outros\ pacotes\ relacionados\ kntir,\ pandoc,\ etc\ -\ não\ necessariamente\ aqui.\ \}} Talvez em ``AntesComecar''
+\href{https://bookdown.org/yihui/bookdown/pandoc.html}{ex}
+
+\hypertarget{vantagens}{%
+\section{Vantagens}\label{vantagens}}
+
+Usar o \emph{RMarkdown} traz várias vangens, das quais cito:
+
+\begin{itemize}
+\tightlist
+\item
+  Fomenta a reproducibilidade;\\
+\item
+  Permite que mais de uma pessoa colabore em relatórios (usando \emph{Git} e \emph{GitHub});\\
+\item
+  Permite apresentar o código usado, caso isso seja pretinente;\\
+\item
+  Facilita a criação e incorporação de gráficos/tabelas e dados do projeto ao relatório;
+\end{itemize}
+
+\hypertarget{pruxe9-requisitos}{%
+\chapter{Pré-requisitos}\label{pruxe9-requisitos}}
+
+Este livro está baseado em \texttt{RMarkdown} e talvez você tenha que instalar alguma coisa de \texttt{LaTex}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# todo desenvolver sobre pacotes a serem usados}
+\CommentTok{# instalando}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"rmarkdown"}\NormalTok{, }\DataTypeTok{dependencies =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# 'knitr'}
+\end{Highlighting}
+\end{Shaded}
+
+Você peceberá que outras bibliotecas tbm serão instaladas.
+
+\hypertarget{AntesComecar}{%
+\chapter{Antes de começar}\label{AntesComecar}}
+
+Alguns pontos básicos:
+
+\begin{itemize}
+\tightlist
+\item
+  A extensão do arquivo é \emph{.Rmd} (\emph{R} + \emph{md} {[}\emph{Markdown}{]}), independente do tipo de documento que se pretende criar (\emph{HTML}, \emph{PDF} ou \emph{Doc});\\
+\item
+  Ao criar um documento \emph{Rmd} novo, o mesmo terá sempre um exemplo (conteúdo) básico;\\
+\item
+  Todo documento \emph{Rmd} deverá ter três elementos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Cabeçalho de configuração \emph{Markdown} (começa e termina com \texttt{-\/-\/-} ) ( \autoref{configRmd} );
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{./img/CabecalhoConfig.png}
+\caption{Cabeçalho de configuração \emph{Rmd}. \label{configRmd}}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Pedaços de código (\emph{code chunk}) (começa e terminam com \texttt{} ``` ) ( \autoref{codigor} );
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{./img/CodigoR.png}
+\caption{Exemplo de trecho de codigo \emph{R} em um documento \emph{Rmd}. \label{codigor}}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  O texto em sí, usando a linguajem \emph{Markdown} para definição de título, negrito, etc ( \autoref{txtrmd} );
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{./img/TxtRmd.png}
+\caption{Texto com sintaxe \emph{Markdown}. Falaremos sobre as sintaxes mais pra frente. \label{txtrmd}}
+\end{figure}
+
+Uma vez criado o documento com o texto e as análises feitas, o mesmo será \textbf{renderizado} e transformado em um documento no formato solicitado.
+
+\begin{quote}
+\textbf{Infelizmente alguns recursos mostrados nesse documento funcionam apenas para a renderização em PDF;}
+\end{quote}
+
+\hypertarget{CriacaoDoc}{%
+\chapter{Criação do documento}\label{CriacaoDoc}}
+
+Ao criar um novo documento \emph{Rmd}, você poderá escolher entre \emph{HTML}, \emph{PDF} ou \emph{Word} ( \autoref{NewDoc} ). Escolha o que for de sua preferencia e \textbf{não se preocupe pois é possível mudar o tipo de documento}, sempre que se fizer pertinente (também veremos isso mais à frente na seção \ref{ExI} ).
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{./img/TipoDoc.png}
+\caption{Criando um novo documento \emph{Rmarkdown} (\emph{*.Rmd}) \label{NewDoc}}
+\end{figure}
+
+Cada trecho de código, sempre que estiverem dentro da área delimitada para codigo r ( \autoref{codigor} ), pode ser executado para se ter conhecimento de seu resultado. O resultado apresentado fará parte do documento final, uma vez que o mesmo seja \textbf{renderizado}.
+
+A qualquer momento você pode \textbf{renderizar} o documento o transofmrado em \emph{HTML}, \emph{PDF} ou \emph{Doc}, usando o botão \emph{Knit}. E nesse menu que podemos mudar o formato final do documento, caso seja necessário.
+
+\hypertarget{ExI}{%
+\subsection{\texorpdfstring{Exercício I (alterando formato \emph{output})}{Exercício I (alterando formato output)}}\label{ExI}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Criar um documento \emph{Rmarkdown} e executar-lo sem modificar nada;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Perceba como está a área de configuração do seu \emph{.Rmd};\\
+  \end{itemize}
+\item
+  Execute-o novamente, mas dessa vez alterando o formato final pelo menu do \emph{Knit} ( \autoref{KnitMenu} );
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Veja novamente a área de configuração do \emph{Rmd}. O que mudou?
+  \end{itemize}
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{./img/Knit.png}
+\caption{Menu do Knit \label{KnitMenu}}
+\end{figure}
+
+\hypertarget{SintaxeMarkdown}{%
+\chapter{Sintaxe Markdown}\label{SintaxeMarkdown}}
+
+Como mencionado anteriormente, ao usar um arquivo \emph{*.Rmd} temos a possibilidade de mesclar a linguagem de formatação de texto \emph{Markdown} com códigos \emph{R}. Vamos começar entendendo a sintaxe \emph{Markdown}.
+
+A sintaxe \emph{Markdown} é toda relacionada à \textbf{formatação de texto}. Como vocês puderam observar ao \emph{renderizar} o documento padrão (exercício anterior), o símbolo \#\# define que naquela linha estará o texto com um título de segunda ordem no nível hierarquico, já que o título de primeira ordem seria definido com apenas um \#. A hierarquia de títulos é, portanto, definida pela sequência de \#. Por exemplo, na figura \autoref{txtrmd}:
+
+\begin{itemize}
+\tightlist
+\item
+  O texto ``Elaboração de relatórios com RMarkdown'' será o título do documento, por possuir apenas um \#.
+\item
+  Logo em seguida, será incluído um título de segunda hierarquia (subtítulo) com texto ``Markdown'' (já que o mesmo é precedido por dois \#).\\
+\item
+  A sequencia segue até satisfazer o nível hierarquico de títulos do seu documento;
+\end{itemize}
+
+Uma coisa bem legal desse sistema de formatação de texto é que, \textbf{por ser declarativo por texto (ou comando em sintaxe \emph{Markdown}), fica fácil colaborar com outras pessoas sem perder as configurações}, além de deixar claro a estrutura do texto. Isso desde que sempre se edite o arquivo \emph{Rmd.} Caso contrário isso dependerá dos conhecimentos dos usuários de softwares de eedição de texto, como o \emph{MS Word}.
+
+Outros elementos importantes para formatação de texto são:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Negrito}: Para colocar uma palavra ou frase em negrito, basta usar dois asterístico (**) para iniciar o trecho e dois asterístico para fechar o texto a ser enfatizado (ex.: **trecho em negrito**).\\
+\item
+  \emph{Itálico}: Similar ao \textbf{negrito}, mas usa-se apenas um asterístico no início e outro no fim (ex.: *trecho em italico*).\\
+\item
+  \sout{riscado}: Basta inserir dois tis (\textasciitilde{}\textasciitilde{}) ao início e outros dois ao fim do trecho a ser riscado (ex.: \textasciitilde{}\textasciitilde{}trecho riscado\textasciitilde{}\textasciitilde{});
+\end{itemize}
+
+\textbf{Pontos importantes}:
+
+\begin{quote}
+Os elementos de formatação de texto, como \textbf{negrito}, \emph{italico}, \sout{riscado}, dentre outros, deverão ser seguidos por texto, sem espaço entre o elemento de formatação e o texto a ser formatado. Contudo, já com relação aos títulos, é necessário dar espaço entre o \# e o texto a receber a formatação de titulo.
+\end{quote}
+
+\hypertarget{exercuxedcio-ii-sintaxe-markdown}{%
+\subsection{Exercício II (Sintaxe markdown)}\label{exercuxedcio-ii-sintaxe-markdown}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Colocar todo o primeiro parágrado como riscado;
+\item
+  Colocar algumas paravras em \textbf{negrito};\\
+\item
+  Colocar outras palavras em \emph{intálico};\\
+\item
+  Alterar a hierarquia dos títulos;\\
+\item
+  Cria um novo título de primeira hierarquia;\\
+\item
+  Renderize em formato \emph{PDF}. Analise o indice do documento. Obedeceu a hierarquia definida?\\
+\item
+  Renderize em formato \emph{.doc}. Analise o indice do documento. Obedeceu a hierarquia definida?
+\end{enumerate}
+
+\hypertarget{TrechoR}{%
+\chapter{Trabalhando com códigos R}\label{TrechoR}}
+
+Já vimos como identificar e inserir código \emph{R} em nosso documento de texto. Vimos que existe um padrão para isso. Mas vamos a alguns detalhes ( \autoref{DetalhesR} ):
+
+\begin{figure}
+\centering
+\includegraphics{./img/DetalhesCodigoR.png}
+\caption{\label{DetalhesR}}
+\end{figure}
+
+Após inserir o padrão que delimita um trecho de código \emph{R} em nosso documento, vemos que dentro das chaves temos vários elementos\ldots{} Vamos explorá-los!
+
+\hypertarget{RLabels}{%
+\section{\texorpdfstring{\emph{labels}}{labels}}\label{RLabels}}
+
+Na \autoref{DetalhesR} vemos, logo após a linguagem que estamos trabalhando (\emph{r}, neste caso), um texto: \textbf{cars}, no primeiro trecho de código; e \textbf{pressure}, no segundo trecho de código. Esse texto é uma \emph{label} que \textbf{podemos} criar (\textbf{opcional}) para cada trecho de código. Ele serve para facilitar na \textbf{compilação} do documento final. Caso algum trecho de código apresente erro, o erro e a \emph{label} serão informados, o que facilitará nossa vida quando estivermos trabalhando com um documento com vários trechos de código diferentes.
+
+Alguns detalhes com relação a essa \emph{label}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Não podem conter espaço;
+\item
+  Quando não informada, será criada uma label padrão \emph{unnamed-chunk-1}. O número final é sequencial em referencia à sequencias aos quais os trechos de código aparecem sem \emph{label}.
+\end{enumerate}
+
+\hypertarget{codeChunkConf}{%
+\chapter{\texorpdfstring{\emph{configurações do \textbf{code chunk} }}{configurações do code chunk }}\label{codeChunkConf}}
+
+Ainda tendo como referência a \autoref{DetalhesR}, vemos no segundo trecho de código a opção \emph{echo=FALSE} logo após o texto da \emph{label} e separado por vírgula. Se trata de uma das \textbf{várias} opções de configuração desse trecho de código.
+
+Como são muitas opções, vamos trabalhar com apenas quatro delas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{echo}: Dever conter valor \emph{TRUE/FALSE} e define se o texto do código inserido deverá constar no texto do documento. Por padrão está definida como \emph{TRUE}, já que se usa muito o \emph{RMarkdown} para fins didáticos, onde se tem interesse de motrar o código usado e o resultado do código.\\
+\item
+  \emph{eval}: Também definido como \emph{TRUE/FALSE}, define se o trecho de código deverá ser executado. Como padrão está definido como \emph{TRUE}. Pode parecer estranho a existencia/necessidade dessa opção. Afinal, porque necessitaríamos um trecho de código se não for para executá-lo? Pense num exemplo: você está criando um documento mostrando como funciona o comando de instalação de bibliotecas (``install.packages(ggplot)'', por exemplo). Se você não alterar o \emph{eval} para \emph{FALSE}, sempre que você \emph{renderizar} seu documento ele fará a instalação da biblioteca. É o que queremos? Imagino que não\ldots{}\\
+\item
+  \emph{include}: Definido por padrão como \emph{TRUE}, define se o trecho de código, \textbf{que será executado} apresentará no texto do documento seus resultados, mensagens e avisos (\emph{warnings}); Também parece sem sentido? Vamos a um exemplo: Queremos, em algum momento salvar um determinado aquivo em \emph{.csv}. Mas não precisamos ter isso no exposto em nosso texto final, então podemos usar essa opção e, sem precisar mexer em várias opções (\emph{hecho}, \emph{warning}, etc) já desabilitar qualquer tipo de mensagem relacionado a essa tarefa ao mesmo tempo que grantimos que a mesma seja executada.\\
+\item
+  \emph{fig.width}: Vimos na \autoref{DetalhesR} que podemos inserir um gráfico direto ao nosso documento sem a necessidade de salva-lo como uma figura e depois inseri-lo ao texto. Contudo, como faríamos para ajustar o tamanho do gráfico? Para isso serve as opções \emph{fig.width} e \emph{fig.heigth}. Essas opções devem ser seguidas de um valor numérico (exemplo, \emph{fig.width = 7}) representando o tamanho de largura/altura da figura em \emph{inches};
+\end{enumerate}
+
+\hypertarget{InserirPlot}{%
+\chapter{\texorpdfstring{Inserir \emph{plot}}{Inserir plot}}\label{InserirPlot}}
+
+Perceba que o segundo trecho de código do documento padrão é um simples comando \texttt{plot(pressure)}. Isso, por sí só, faz com que o \emph{plot} realizado seja incluído no documento final ao \emph{renderizá-lo}.
+
+\hypertarget{InserirLegendaPlot}{%
+\section{\texorpdfstring{Inserir legenda ao \emph{plot}}{Inserir legenda ao plot}}\label{InserirLegendaPlot}}
+
+Um parâmetro de configuração, não mencionado na seção anterior ( \ref{codeChunkConf} ), mas que será fundamental, caso queira inserir uma selegenda ao seu gráfico é a opção \texttt{fig.cap}. Essa opção de configuração deverá receber a string (portanto, deverá estar entre aspas) a ser exibida como legenda.
+
+\textbf{Exemplo}:
+
+\begin{verbatim}
+\```{r, fig.cap="Gráfico de dispersão entre variável x e y."}
+plot(c(1,2,3), c(3,2,1))
+\```
+\end{verbatim}
+
+\textbf{Resultado}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{Dominando_RMarkdown_files/figure-latex/unnamed-chunk-3-1.pdf}
+\caption{\label{fig:unnamed-chunk-3}Gráfico de dispersão entre variável x e y.}
+\end{figure}
+
+Veremos mais opções de configuração dos gráficos na seção \ref{crossRef}
+
+\hypertarget{exercuxedcio-opuxe7uxf5es-de-codigo-r}{%
+\subsection{Exercício (opções de codigo R)}\label{exercuxedcio-opuxe7uxf5es-de-codigo-r}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  No \emph{Rmd} criando anteriormente, altere os parâmetros dos trechos de código. Quais são os resultados das alterações realizadas?\\
+\item
+  Altere o gráfico usando \emph{ggplot};
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Perceba que há que carregar a biblioteca (incluí-lo no trecho de código).
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{inline-code}{%
+\chapter{\texorpdfstring{\emph{inline code}}{inline code}}\label{inline-code}}
+
+Já vimos como inserir trechos de código no nosso texto. Uma coisa que não vimos é o chamado \emph{inline code}, que é a possibilidade de escrever um codigo curto (de uma linha) e que terá seu resultado inserido na mesma posição e que se encontra o código.
+
+Para usá-lo basta usar uma crase (\texttt{\textasciigrave{}}) seguida pela definição da linguagem de programação a ser usada (meste caso, \emph{r}) e posteriormente, o comando a ser executado. Exemplo: \texttt{\textasciigrave{}\ r\ length(\ c(1,\ 2,\ 3,\ 4))\ \textasciigrave{}}
+
+Para que serve? Vamos imaginar que estamos escrevendo um artigo e precisamos dizer a quantidade de dados que usamos. Uma possibilidade (vou chamá-la de tradicional) seria consultar a quantidade de linhas ou o \emph{length} de nossos dados no \emph{R} e escrevê-lo posteriormente no nosso texto. Mas e se nosso dados mudarem? Teremos que fazer isso de novo. Aí é que entra o \emph{inline code}.
+
+\textbf{Exemplo}:
+
+\begin{quote}
+Em nossa análise foi realizada a média de \texttt{\textasciigrave{}\ r\ length(\ c(1,\ 2,\ 3,\ 4))\ \textasciigrave{}} valores numérico sorteados ao azar, cujo resultado foi de \texttt{\textasciigrave{}\ r\ mean(\ c(1,\ 2,\ 3,\ 4))\ \textasciigrave{}};
+\end{quote}
+
+\textbf{Resultado}:
+
+\begin{quote}
+Em nossa análise foi realizada a média de 4 valores numérico sorteados ao azar, cujo resultado foi de 2.5;
+\end{quote}
+
+\hypertarget{inserindo-tabela}{%
+\chapter{Inserindo tabela}\label{inserindo-tabela}}
+
+Outro elemento muito importante a ser inserido nos relatórios são as tabelas. Há algumas formas de adicionar os \emph{dataframes} ou \emph{tibles} ao nosso relatório de forma automática e configurada. Vamos usar o pacote \texttt{knitr}.
+
+\hypertarget{TableKnitr}{%
+\section{Knitir}\label{TableKnitr}}
+
+Para adicionar nosso \emph{dataframe} ao relatório, vamos usar a função \texttt{kable()}, do pacote \texttt{knitr}, da seguinte forma:
+
+\textbf{Exemplo}:
+
+\begin{verbatim}
+\```{r InserindoTabela}
+knitr::kable(head(mtcars))
+\```
+\end{verbatim}
+
+\textbf{Resultado}:
+
+\begin{tabular}{l|r|r|r|r|r|r|r|r|r|r|r}
+\hline
+  & mpg & cyl & disp & hp & drat & wt & qsec & vs & am & gear & carb\\
+\hline
+Mazda RX4 & 21.0 & 6 & 160 & 110 & 3.90 & 2.620 & 16.46 & 0 & 1 & 4 & 4\\
+\hline
+Mazda RX4 Wag & 21.0 & 6 & 160 & 110 & 3.90 & 2.875 & 17.02 & 0 & 1 & 4 & 4\\
+\hline
+Datsun 710 & 22.8 & 4 & 108 & 93 & 3.85 & 2.320 & 18.61 & 1 & 1 & 4 & 1\\
+\hline
+Hornet 4 Drive & 21.4 & 6 & 258 & 110 & 3.08 & 3.215 & 19.44 & 1 & 0 & 3 & 1\\
+\hline
+Hornet Sportabout & 18.7 & 8 & 360 & 175 & 3.15 & 3.440 & 17.02 & 0 & 0 & 3 & 2\\
+\hline
+Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
+\hline
+\end{tabular}
+
+Incentivo a vocês a darem uma olhada no \emph{help} da função \texttt{kable}, para identificarem os parâmetros de configuração que afetarão diretamente o \emph{layout} final da tabela.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://rapporter.github.io/pander/}{pander}\\
+\item
+  \href{https://cran.r-project.org/web/packages/xtable/index.html}{xtable}\\
+\item
+  \href{http://rapporter.github.io/pander/}{comparativo}
+\end{itemize}
+
+\hypertarget{adicionando-titulo-uxe0-tabela}{%
+\subsection{Adicionando titulo à tabela}\label{adicionando-titulo-uxe0-tabela}}
+
+\textbf{Exemplo}:
+
+\begin{verbatim}
+\```{r}
+knitr::kable(head(mtcars), caption="Analise dos carros.")
+\```
+\end{verbatim}
+
+\textbf{Resultado}:
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Analise dos carros.}
+\centering
+\begin{tabular}[t]{l|r|r|r|r|r|r|r|r|r|r|r}
+\hline
+  & mpg & cyl & disp & hp & drat & wt & qsec & vs & am & gear & carb\\
+\hline
+Mazda RX4 & 21.0 & 6 & 160 & 110 & 3.90 & 2.620 & 16.46 & 0 & 1 & 4 & 4\\
+\hline
+Mazda RX4 Wag & 21.0 & 6 & 160 & 110 & 3.90 & 2.875 & 17.02 & 0 & 1 & 4 & 4\\
+\hline
+Datsun 710 & 22.8 & 4 & 108 & 93 & 3.85 & 2.320 & 18.61 & 1 & 1 & 4 & 1\\
+\hline
+Hornet 4 Drive & 21.4 & 6 & 258 & 110 & 3.08 & 3.215 & 19.44 & 1 & 0 & 3 & 1\\
+\hline
+Hornet Sportabout & 18.7 & 8 & 360 & 175 & 3.15 & 3.440 & 17.02 & 0 & 0 & 3 & 2\\
+\hline
+Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{InserindoImagem}{%
+\chapter{Inserindo imagem}\label{InserindoImagem}}
+
+Já vimos como inserir um gráfico gerado direto de um código \emph{R}. Lembra? Isso foi na seção \ref{InserirPlot}. Mas sabemos bem que nem todas as imagens e figuras de nossos documentos e/ou artigos são provenientes do \emph{R}. Então precisamos saber como inseri-las.
+
+Para fazer isso basta incluir o seguinte código \texttt{!{[}{]}(endereco/para/imagem.png)}. A exclamação tem que se mantida. E dentro dos colchetes, podemos escrever a legenda da imagem, quando acharmos pertinente. \textbf{Veja a seção \ref{MarkdownConfig} para saber o que é preciso ser modificado na configuração do \emph{Markdown} para que a legenda de imagens sejam apresentadas.} Não se preocupem\ldots{} é uma linha que muda tudo!
+
+Das maiores fontes de erro ao inserir imagens, antecipamos:
+
+\begin{itemize}
+\tightlist
+\item
+  Caminho para imagem errado\footnote{Só esse tema vale um capitulo\ldots{} Mas em resumo, podemos usar um caminho relativo, que considera sempre a partir da pasta de trabalho atual (\emph{Working Directory}); Ou caminho absoluto, que informará todas as pastas desde o diretório ``raiz'' (não recomendado!);};\\
+\item
+  Nome errado do arquivo;\\
+\item
+  Falta de parágrafo antes e depois de onde deverá ir a imagem \footnote{Isso faz parte de algumas coisas inexplicáveis do \emph{Markdown}\ldots{} As vezes precisamos dar espaço entre parágrafos para que alguns recursos funcionem. As vezes não. Nisso a experiencia ajuda bastante.};
+\end{itemize}
+
+\hypertarget{foruxe7ando-ordem-de-apariuxe7uxe3o-das-imagens}{%
+\section{Forçando ordem de aparição das imagens}\label{foruxe7ando-ordem-de-apariuxe7uxe3o-das-imagens}}
+
+Se você chegou a inserir várias imagens no seu relatório, já deve ter se deparado com um comportamento estranho do \emph{Rmarkdown} em colocar as imagens em posições diferentes da ordem inserid ano relatório. \href{https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html}{Isso é normal e, na verdade tem a ver com LaTeX}. O \emph{LaTeX} busca otimizar espaço e por isso é comum que algumas imagens estejam onde deveriam estar.
+A noticia boa é que podemos resolver isso.
+
+Basta adicionar ao cabeçalho o seguinte:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{header-includes:} - Permite adicionar comando latex
+\item
+  \texttt{\textbackslash{}usepackage\{float\}} - Informa que usaremos o pacote `float', necessário para o que queremos
+\item
+  \texttt{\textbackslash{}floatplacement\{figure\}\{H\}} - Informa que queremos o posicionamento das imagens no local ao qual ela é ``chamada''. \texttt{h} faz referência a ``here''.
+\end{itemize}
+
+\begin{verbatim}
+header-includes:
+- \usepackage{float}
+- \floatplacement{figure}{H}
+\end{verbatim}
+
+\hypertarget{crossRef}{%
+\chapter{Referência cruzada}\label{crossRef}}
+
+Por referência cruzadas entendemos a possibilidade de referir-nos a imagens e seções de nosso documento no corpo de nosso texto, sem termos que nos preocupar com seus respectivos números, facilitando \textbf{muito} a edição e a manutenção de nossos textos. Isso pelo fato de ambos serem sempre atualizados segundo a ordem das figuras/seções a cada \emph{renderização}.
+
+\hypertarget{de-gruxe1fico-plot}{%
+\section{\texorpdfstring{De gráfico (\emph{plot})}{De gráfico (plot)}}\label{de-gruxe1fico-plot}}
+
+Vimos em \ref{InserirPlot} como inserir um gráfico (\emph{plot}) em nosso documento, lembra?
+
+\begin{verbatim}
+\```{r}
+plot(c(1,2,3), c(3,2,1))
+\```
+\end{verbatim}
+
+E vimos como iserir leganda a ele:
+
+\begin{verbatim}
+\```{r, fig.cap="Gráfico de dispersão entre variável x e y.""}
+plot(c(1,2,3), c(3,2,1))
+\```
+\end{verbatim}
+
+Mas como usá-lo em referencia cruzada?
+
+Para criar referência cruzada com os gráficos criados através do \emph{R}, precisaremos criar uma \emph{label}. A \emph{label}, assim como no caso dos \emph{trechos de código} ( \ref{RLabels} ) deverão se um dientificador único e exclusivo para cada gráfico. Mas a \emph{label} usada, não é a mesma que a do \emph{code-chunk}. Por isso precisamos inserir dentro da \emph{string} da configuração da legenda (\texttt{fig.cap}) o comando \texttt{\textbackslash{}\textbackslash{}label\{LabelDoGrafico\}} onde o texto dentro de chaves serão a \emph{label} do gráfico.
+
+Por agora só criamos a \emph{label} do gráfico. Para fazer a referência à esse gráfico em nosso texto, usaremos o comando \texttt{\textbackslash{}ref\{LabelDoGrafico\}} onde quisermos referir-nos à figura.
+
+\emph{Exemplo}:
+
+\begin{verbatim}
+\```{r s, fig.cap = "\\label{fig:plotTest}Gráfico de dispersão entre as variáveis x e y."}
+plot(c(1,2,3,4), c(1,2,3,4))
+\```
+\end{verbatim}
+
+\begin{quote}
+Aqui farei referência à \texttt{\textbackslash{}ref\{fig:plotTest\}} onde vemos o gráfico de dispersão entre as variáveis x e y.
+\end{quote}
+
+\emph{Resultado}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{Dominando_RMarkdown_files/figure-latex/unnamed-chunk-5-1.pdf}
+\caption{\label{fig:unnamed-chunk-5}\label{fig:plotTest}Gráfico de dispersão entre as variáveis x e y.}
+\end{figure}
+
+\begin{quote}
+Aqui farei referência à figura \ref{fig:plotTest} onde vemos o gráfico de dispersão entre as variáveis x e y.
+\end{quote}
+
+\hypertarget{de-imagem}{%
+\section{De imagem}\label{de-imagem}}
+
+Vimos na seção \ref{InserindoImagem} como inserir uma imagem. Lembra?
+
+\texttt{!{[}{]}(./caminho/para/imagem.png)}
+
+Vimos ainda que podemos inserir uma legenda a essa figura. Lembra?
+
+\texttt{!{[}legenda\ da\ imagem\ vai\ aqui{]}(./caminho/para/imagem.png)}
+
+Pois bem, se queremos fazer uma referencia a essa imagem usando a \emph{ferramenta} de referência cruzada, basta, entre os colchetes, inserir uma \emph{label} a essa mesma imagem: (\texttt{\textbackslash{}label\{LabelDessaImagem\}} ). Assim como as \emph{labels} dos trechos de código (conforme mencionado na seção \autoref{RLabels} ), elas deverão ser como um ID e não poderão se repetir em diferentes imagens:
+
+\texttt{!{[}legenda\ da\ imagem\ vai\ aqui\ \textbackslash{}label\{LabelDessaImagem\}{]}(./caminho/para/imagem.png)}
+
+O que fizemos até agora foi criar uma \emph{label} para a imagem que queremos referenciar em alguma parte do texto. Agora, para fazer a referencia a essa imagem, basta usar \texttt{\textbackslash{}autoref\{LabelDessaImagem\}}.
+
+\textbf{Exemplo}:
+
+\begin{quote}
+\texttt{!{[}O\ mistério\ da\ restauração\ foi\ desvendado\ por\ esta\ imagem.\ \textbackslash{}label\{SolucaoRestauracao\}{]}(./img/RestorationAnswers.jpg)}~\\
+veja a \texttt{\textbackslash{}autoref\{LabelDessaImagem\}} ela é muito legal a responde todas as questões científicas sobre a restauração!
+\end{quote}
+
+\textbf{Resultado}:
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{./img/RestorationAnswers.jpg}
+\caption{O mistério da restauração foi desvendado por esta imagem. \label{SolucaoRestauracao}}
+\end{figure}
+
+\begin{quote}
+veja a \autoref{SolucaoRestauracao} ela é muito legal a responde todas as questões científicas sobre a restauração!
+\end{quote}
+
+\hypertarget{de-seuxe7uxe3o}{%
+\section{De seção}\label{de-seuxe7uxe3o}}
+
+Quando quisermos fazer referencia a alguma seção (Título, subtítulo, \ldots{}), precisaremos criar uma \emph{label} nessa seção, usando o \emph{comando} \texttt{\{\#labelsecao\}}, para depois referenciá-la no texto usando \texttt{\textbackslash{}ref\{labelsecao\}}.\\
+Repare que, para criar a seção, devemos inserir \# antes do texto da \emph{label}. E no comando \texttt{\textbackslash{}ref\{\}} a label vai sem o \#. Outra observação importante, não use espaço nas \emph{labels}!
+
+\textbf{Exemplo}:
+
+\begin{quote}
+Ver a seção \texttt{\textbackslash{}ref\{InserindoImagem\}} para saber mais informações
+\end{quote}
+
+\textbf{Resultado}:
+
+\begin{quote}
+Ver a seção \ref{InserindoImagem} para saber mais informações
+\end{quote}
+
+\hypertarget{de-tabela}{%
+\section{De tabela}\label{de-tabela}}
+
+Assim como nos casos anteriores, precisaremos adicionar uma \emph{label} à nossa tabela. Faremos isso adicionarndo \texttt{\textbackslash{}\textbackslash{}label\{labelDaTabela\}} \textbf{dentro da tring do título}. Estamos usando \texttt{\textbackslash{}} duas vezes para que a mesma não seja confundida com o título. \textbf{Fique atento pois essa é uma fonte de erro bem comum}.
+
+\textbf{Exemplo}:
+
+\begin{verbatim}
+\```{r}
+knitr::kable(mtcars[1:3,1:3], align='c', caption="Analise dos carros. \\label{tabelamtcars} ")
+\```
+\end{verbatim}
+
+\textbf{Resultado}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(mtcars[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{], }\DataTypeTok{align=}\StringTok{'c'}\NormalTok{, }\DataTypeTok{caption=}\StringTok{"Analise dos carros. }\CharTok{\textbackslash{}\textbackslash{}}\StringTok{label\{tabelamtcars\} "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-6}Analise dos carros. \label{tabelamtcars} }
+\centering
+\begin{tabular}[t]{l|c|c|c}
+\hline
+  & mpg & cyl & disp\\
+\hline
+Mazda RX4 & 21.0 & 6 & 160\\
+\hline
+Mazda RX4 Wag & 21.0 & 6 & 160\\
+\hline
+Datsun 710 & 22.8 & 4 & 108\\
+\hline
+\end{tabular}
+\end{table}
+
+E, como você já deve imagina, para fazer referencia à tablea, basta usar \texttt{\textbackslash{}autoref\{labelDaTable\}}
+
+\textbf{Exemplo}:
+
+\begin{quote}
+Na \texttt{\textbackslash{}autoref\{tabelamtcars\}} apresentamos todos os dados usados.
+\end{quote}
+
+\textbf{Resultado}:
+
+\begin{quote}
+Na \autoref{tabelamtcars} apresentamos todos os dados usados.
+\end{quote}
+
+\hypertarget{nota-de-roda-puxe9}{%
+\chapter{Nota de roda-pé}\label{nota-de-roda-puxe9}}
+
+Para inserir nota de roda-pé é muito fácil, e há duas possibilidades para você escolher.
+
+\hypertarget{op1}{%
+\section{Primeira possibilidade}\label{op1}}
+
+A primeira, que acredito ser a mais simples (mas não necessáriamente, mais organizada, no sentido textual) é inserindo \texttt{\^{}{[}{]}} ao fim do trecho que deverá conter a nota, com o texto dentro dos colchetes. Exemplo:
+\texttt{\^{}{[}aqui\ dentro\ vai\ o\ texto\ da\ nota{]}}
+
+\textbf{Exemplo}:
+
+\begin{quote}
+Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram \texttt{\^{}{[}Frase\ retirada\ de:\ https://www.mundodasmensagens.com/frases-efeito/{]}}.
+\end{quote}
+
+\textbf{Resultado}:
+
+\begin{quote}
+Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram \footnote{Frase retirada de: \url{https://www.mundodasmensagens.com/frases-efeito/}}.
+\end{quote}
+
+Porque eu acho que talvez não seja, necessáriamento, a forma mais organizada? Pois imagine que você queira colocar uma nota de roda-pé ao fim de uma frase que está no meio de um parágrafo. Você terá no seu \emph{Rmd} a nota de roda-pé no meio do parágrafo. E isso pode confundir a algumas pessoas ou dificultar a leitura do paragrafo inteiro (quando não renderizado, claro).
+
+Não deixe de conferir alguns pontos importantes na seção \ref{RodapeImportante}.
+
+\hypertarget{op2}{%
+\section{Segunda possibilidade}\label{op2}}
+
+Outra possibilidade que nos obriga a sermos mais cuidadosos é inserindo, após o trecho que deva conter a nota: \texttt{{[}\^{}1{]}}. Com isso vc está criando a ``ancorargem'' à nota de roda-pé. \textbf{Ou seja, está informando que alí deverá entrar um valor superescrito que estará linkado com a nota de roda-pé}. E para criar a nota, basta colocar em qualquer momento do texto \texttt{{[}\^{}1{]}:} seguindo do texto de nota.
+
+\textbf{Exemplo}:
+
+\begin{quote}
+A vida não se acaba quando deixamos de viver e sim quando deixamos de buscar algo nela! \texttt{{[}\^{}1{]}}.\\
+\texttt{{[}\^{}1{]}:} Frase retirada de: \url{https://www.mundodasmensagens.com/frases-efeito/}
+\end{quote}
+
+\textbf{Resultado}:
+
+\begin{quote}
+A vida não se acaba quando deixamos de viver e sim quando deixamos de buscar algo nela! \footnote{Frase retirada de: \url{https://www.mundodasmensagens.com/frases-efeito/}}.
+\end{quote}
+
+\hypertarget{RodapeImportante}{%
+\section{Pontos importantes:}\label{RodapeImportante}}
+
+\begin{itemize}
+\tightlist
+\item
+  Para a primeira opção ( \ref{op1} ) :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Perceba que não é necessário inserir um valor numérico antes, dentro ou depois dos colchetes, como se faz necessário com a segunda opção;\\
+  \end{itemize}
+\item
+  Para a segunda opção (\ref{op2} ) :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    O valor numérico dentro do colchete não pode ser repetido (ou usado para outra nota diferente);\\
+  \item
+    O valor numérico dentro do colchete não precisa representar a ordem de aparição das notas! Isso facilita em muito por não exigir reescrever todos os valores de nota de roda-pé subsequentes a uma nota removida;
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{referuxeancias-bibliogruxe1ficas}{%
+\chapter{referências bibliográficas}\label{referuxeancias-bibliogruxe1ficas}}
+
+Aqui começamos a fazer a transição de um simples relatório a um potencial artigo\ldots{} Vamos incluir bibliografia!
+
+Qualquer gerenciador de bibliografias (\textbf{Zotero}, \textbf{Mendeley}, etc) possibilita extrair os artigos no formato \emph{.bib}. Se vocês selecionarem os artigos/livros que vão usar e exportá-los como \emph{.bib} e abri-los em um editor do texto\footnote{editor de texto não é a mesma coisa que Word! Abra com um \textbf{notepad}}, poderá ver algo assim:
+
+\begin{verbatim}
+@article{Akcakaya2009,
+abstract = {The World Conservation Union (IUCN) defined a set of categories for conservation status sup- ported by decision rules based on thresholds of parameters such as distributional range, population size, pop- ulation history, and risk of extinction. [...] We propose a method of dealing with uncertainty that can be applied to the current IUCN criteria without altering the rules, thresholds, or intent of these criteria. Our method propagates the uncertainty in the input parameters and assigns the evaluated spe- cies either to a single category (as the current criteria do) or to a range of plausible categories, depending on the nature and extent of uncertainties.},
+author = {Akcakaya, H Resit and Ferson, Scott and Burgman, Mark a and Keith, David a and Georgina, M and Todd, Charles R},
+doi = {10.1046/j.1523-1739.2000.99125.x},
+file = {:home/felipe/Documentos/ConsistentIUCN.pdf:pdf},
+issn = {0888-8892},
+journal = {Conservation biology},
+keywords = {Artigo pos,Revisao{\_}Intro},
+mendeley-tags = {Artigo pos,Revisao{\_}Intro},
+number = {4},
+pages = {1001--1013},
+title = {{Making Consistent IUCN Classifications under Uncertainty}},
+url = {http://onlinelibrary.wiley.com/doi/10.1046/j.1523-1739.2000.99125.x/full},
+volume = {14},
+year = {2009}
+}
+\end{verbatim}
+
+Uma vez que tenhamos exportado os artigos a serem usados para o formato \emph{.bib} e com o arquivo na mesma pasta onde estamos trabalhando nosso texto \footnote{Caso o arquivo esteja em uma pasta diferentes, será necessário informar o cominho à pasta}, precisaremos informar ao \emph{Markdown} que vamos usar a opção de bibliografia e qual será o arquivo \emph{.bib} a ser usado. Para isso, adicionaremos à confirguração do \emph{RMarkdown} a seguinte linha: \texttt{bibliography:\ Referencias.bib}.
+
+Repare como está a configuração deste documento que vc está lendo:
+
+\begin{verbatim}
+---
+title: "Relatorios com RMarkdown"
+date: 12/02/2019
+output:
+  pdf_document: default
+  word_document: default
+bibliography: Referencias.bib
+---
+\end{verbatim}
+
+Neste caso estou dizendo que o arquivo com as referências bibliográficas estão no arquivo ``Referencias.bib''.
+
+Tendo feito isso, agora já posso fazer as citações, da seguinte forma:\\
+\texttt{{[}@Akcakaya2009{]}} = \citep{Akcakaya2009}\\
+ou\\
+\texttt{@Akcakaya2009} = \citet{Akcakaya2009}\\
+Caso queiramos adicionar mais refencias:\\
+\texttt{{[}@Akcakaya2009,\ @Akcakaya2009{]}} = \citep[\citet{Akcakaya2009}]{Akcakaya2009}\\
+ou\\
+\texttt{@Akcakaya2009,\ @Akcakaya2009} = \citet{Akcakaya2009}, \citet{Akcakaya2009}
+
+Legal. Até agora, já adicionamos nossa base de dados de referências, fizemos a citação. Mas como fica a bibliografia?
+
+Basta adicionarmos um capitulo \texttt{\#\#\ References} (com qualque níve de hierarquia) e pronto! O \emph{RMarkdown} já entenderá que nessa seção deverão constar todos e apenas aquelas referências que constan em nosso \emph{.bib} que tenham sido usadas. E por mais que usemos mais de uma citação para um mesmo artigo, só aparecerá uma referencia\ldots{}
+
+\begin{quote}
+E aí: Vai querer continuar usando o Word?
+\end{quote}
+
+Outra coisa, pelo fato de o \emph{.bib} se um doc de texto, o mesmo pode ser versionado. Outros colaboradores poderão adicionar novas referências e fazer citações e tudo será controlado por versionamento\ldots{}
+
+\textbf{A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no \emph{.bib}. Ou seja, se seu gerenciador de referências não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.}
+
+\hypertarget{adicionando-autor-abstract-e-afiliauxe7uxf5es}{%
+\section{Adicionando autor, abstract e afiliações}\label{adicionando-autor-abstract-e-afiliauxe7uxf5es}}
+
+Para adicionar autor e abstract teremos que adicionar à área de configuração do \emph{RMarkdown}:
+
+\begin{verbatim}
+author:
+- Felipe S. M. Barros
+abstract: |
+  Aqui vai o abstract
+\end{verbatim}
+
+Você pode adicionar quantos autores quiser;
+
+\textbf{FALTA VER COMO INFORMAR UNIVERSIDADE DOS AUTORES}
+
+\hypertarget{notauxe7uxf5es-matemuxe1ticas}{%
+\chapter{Notações matemáticas}\label{notauxe7uxf5es-matemuxe1ticas}}
+
+Bom, graças ao \emph{Latex}, podemos também escrever nossas equações e expressões matemáticas. E podemos fazer isso de duas formas:
+
+\hypertarget{inline}{%
+\section{\texorpdfstring{\emph{Inline}}{Inline}}\label{inline}}
+
+Para que a expressão seja renderizada na linha em que está sendo escrita, usamos um cifrão (\texttt{\$}) ao início e outro ao fim, e entre eles a expressão matemática em linguagem \emph{Latex}. A linguagem \emph{Latex} não é dificil e sabendo pesquisar fica fácil escrever as expressões matemáticas e equações estatísticas.
+
+\textbf{Exemplo}:
+
+Escrevendo uma equeção inline é assim \texttt{\$\textbackslash{}sum\_\{n\}\ =\ \textbackslash{}pi\ +\ \textbackslash{}sigma\^{}2\$} e o texo segue;
+
+\textbf{Resultado}:
+
+Escrevendo uma equeção inline é assim \(\sum_{n} = \pi + \sigma^2\) e o texo segue;
+
+\hypertarget{em-destaque}{%
+\section{\texorpdfstring{\emph{Em destaque}}{Em destaque}}\label{em-destaque}}
+
+Agora, quando necessitamos escrever uma equação ou expressão de forma que ela fique em destaque, ou não precisamos dela em nosso texto, podemos usar dois cifrões ao início e ao fim, e entre eles a equação/expressão:
+
+\textbf{Exemplo}:
+
+Escrevendo em bloco, seria assim: \texttt{\$\$\textbackslash{}sum\_\{n\}\ =\ \textbackslash{}pi\ +\ \textbackslash{}sigma\^{}2\$\$}
+
+\textbf{Resultado}:
+
+Escrevendo em bloco, seria assim: \[\sum_{n} = \pi + \sigma^2\]
+
+Para mais informações sobre notações matemáticas em Latex, visite \href{https://en.wikibooks.org/wiki/LaTeX/Mathematics}{este site}
+
+\hypertarget{MarkdownConfig}{%
+\chapter{Configuração Markdown}\label{MarkdownConfig}}
+
+Há vários elementos de configuração do \emph{RMarkdown}, que poderão ser buscados pelas referências na seção \ref{masInfos}.
+
+\hypertarget{numerar-as-seuxe7uxf5escapuxedtulos}{%
+\section{Numerar as seções/capítulos}\label{numerar-as-seuxe7uxf5escapuxedtulos}}
+
+Como vocês puderam notar, as seções do meu documento estão numeradas e a de vocês (caso esteja usando o modelo padrão), não. Caso queiram que as seções sejam numeradas, basta inserir na área de configuração do markdown (como vimos na seção \ref{AntesComecar} ) o comando: \texttt{number\_sections:\ yes}.
+
+\hypertarget{table-of-cotent}{%
+\section{Table of cotent}\label{table-of-cotent}}
+
+Basta adicionar à configuração do \emph{RMarkdown}:
+
+\begin{verbatim}
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 4
+\end{verbatim}
+
+\hypertarget{masInfos}{%
+\section{Mais infos}\label{masInfos}}
+
+Markdown é um universo, juntando com as possibilidades de programaçao do R, fica maior ainda. Por isso cobri nesse documento apenas os elementos básicos para compreender como usá-los. Mas para extrair o máximo de todo esse potencial, sugiro que estude por conta própria. Só o \href{https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf}{\emph{sheat sheet}}, já é um om começo.
+
+Se quiser algo realmente interessante, veja o livro sobre \href{https://bookdown.org/yihui/rmarkdown/}{\emph{RMarkdown}}
+
+Mas tem tbm vários artigos de blogs, dos quais, \href{https://jozefhajnala.gitlab.io/r/r909-rmarkdown-tips/}{esse aqui} ou \href{https://sebastiansauer.github.io/writing_tools/}{esse} são bem interessantes.
+
+Para mais informações sobre o \href{http://rmarkdown.rstudio.com}{RMarkdown, clique aqui}.\\
+Ou até mesmo esse \href{https://bookdown.org/yihui/rmarkdown/}{super livro}.
+
+Ou \href{https://www.r-bloggers.com/r-markdown-3-sources-of-reproducibility-issues-and-options-how-to-tackle-them/}{esse artigo de blog.}
+
+\hypertarget{refs}{%
+\chapter{References}\label{refs}}
+
+\bibliography{book.bib,packages.bib,Referencias.bib}
+
+\end{document}

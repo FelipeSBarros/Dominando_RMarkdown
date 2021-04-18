@@ -1,5 +1,5 @@
 output_dir: "docs"
-book_filename: "Dominando *RMarkdown*"
+book_filename: "Dominando_RMarkdown"
 delete_merged_file: true
 language:
   ui:

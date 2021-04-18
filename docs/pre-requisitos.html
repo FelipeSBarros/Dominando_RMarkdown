@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 13 Nota de roda-pé | Dominando RMarkdown</title>
+  <title>Capítulo 2 Pre-requisitos | Dominando RMarkdown</title>
   <meta name="description" content="Esse livro é um material didático para você dominar a produção de relatórios com RMarkdown" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 13 Nota de roda-pé | Dominando RMarkdown" />
+  <meta property="og:title" content="Capítulo 2 Pre-requisitos | Dominando RMarkdown" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 13 Nota de roda-pé | Dominando RMarkdown" />
+  <meta name="twitter:title" content="Capítulo 2 Pre-requisitos | Dominando RMarkdown" />
   
   <meta name="twitter:description" content="Esse livro é um material didático para você dominar a produção de relatórios com RMarkdown" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="crossRef.html"/>
-<link rel="next" href="referências-bibliográficas.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="AntesComecar.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -137,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#rmarkdown"><i class="fa fa-check"></i><b>1.3</b> Sobre o <em>RMarkdown</em></a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#vantagens"><i class="fa fa-check"></i><b>1.4</b> Vantagens</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i><b>2</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="2" data-path="pre-requisitos.html"><a href="pre-requisitos.html"><i class="fa fa-check"></i><b>2</b> Pre-requisitos</a></li>
 <li class="chapter" data-level="3" data-path="AntesComecar.html"><a href="AntesComecar.html"><i class="fa fa-check"></i><b>3</b> Antes de começar</a></li>
 <li class="chapter" data-level="4" data-path="CriacaoDoc.html"><a href="CriacaoDoc.html"><i class="fa fa-check"></i><b>4</b> Criação do documento</a><ul>
 <li class="chapter" data-level="4.0.1" data-path="CriacaoDoc.html"><a href="CriacaoDoc.html#ExI"><i class="fa fa-check"></i><b>4.0.1</b> Exercício I (alterando formato <em>output</em>)</a></li>
@@ -207,68 +207,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="nota-de-roda-pé" class="section level1">
-<h1><span class="header-section-number">Capítulo 13</span> Nota de roda-pé</h1>
-<p>Para inserir nota de roda-pé é muito fácil, e há duas possibilidades para você escolher.</p>
-<div id="op1" class="section level2">
-<h2><span class="header-section-number">13.1</span> Primeira possibilidade</h2>
-<p>A primeira, que acredito ser a mais simples (mas não necessáriamente, mais organizada, no sentido textual) é inserindo <code>^[]</code> ao fim do trecho que deverá conter a nota, com o texto dentro dos colchetes. Exemplo:
-<code>^[aqui dentro vai o texto da nota]</code></p>
-<p><strong>Exemplo</strong>:</p>
-<blockquote>
-<p>Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram <code>^[Frase retirada de: https://www.mundodasmensagens.com/frases-efeito/]</code>.</p>
-</blockquote>
-<p><strong>Resultado</strong>:</p>
-<blockquote>
-<p>Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
-</blockquote>
-<p>Porque eu acho que talvez não seja, necessáriamento, a forma mais organizada? Pois imagine que você queira colocar uma nota de roda-pé ao fim de uma frase que está no meio de um parágrafo. Você terá no seu <em>Rmd</em> a nota de roda-pé no meio do parágrafo. E isso pode confundir a algumas pessoas ou dificultar a leitura do paragrafo inteiro (quando não renderizado, claro).</p>
-<p>Não deixe de conferir alguns pontos importantes na seção .</p>
-</div>
-<div id="op2" class="section level2">
-<h2><span class="header-section-number">13.2</span> Segunda possibilidade</h2>
-<p>Outra possibilidade que nos obriga a sermos mais cuidadosos é inserindo, após o trecho que deva conter a nota: <code>[^1]</code>. Com isso vc está criando a “ancorargem” à nota de roda-pé. <strong>Ou seja, está informando que alí deverá entrar um valor superescrito que estará linkado com a nota de roda-pé</strong>. E para criar a nota, basta colocar em qualquer momento do texto <code>[^1]:</code> seguindo do texto de nota.</p>
-<p><strong>Exemplo</strong>:</p>
-<blockquote>
-<p>A vida não se acaba quando deixamos de viver e sim quando deixamos de buscar algo nela! <code>[^1]</code>.<br />
-<code>[^1]:</code> Frase retirada de: <a href="https://www.mundodasmensagens.com/frases-efeito/" class="uri">https://www.mundodasmensagens.com/frases-efeito/</a></p>
-</blockquote>
-<p><strong>Resultado</strong>:</p>
-<blockquote>
-<p>A vida não se acaba quando deixamos de viver e sim quando deixamos de buscar algo nela!.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
-</blockquote>
-</div>
-<div id="RodapeImportante" class="section level2">
-<h2><span class="header-section-number">13.3</span> Pontos importantes:</h2>
-<ul>
-<li>Para a primeira opção (  ) :
-<ul>
-<li>Perceba que não é necessário inserir um valor numérico antes, dentro ou depois dos colchetes, como se faz necessário com a segunda opção;<br />
-</li>
-</ul></li>
-<li>Para a segunda opção ( ) :
-<ul>
-<li>O valor numérico dentro do colchete não pode ser repetido (ou usado para outra nota diferente);<br />
-</li>
-<li>O valor numérico dentro do colchete não precisa representar a ordem de aparição das notas! Isso facilita em muito por não exigir reescrever todos os valores de nota de roda-pé subsequentes a uma nota removida;</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="3">
-<li id="fn3"><p>Frase retirada de: <a href="https://www.mundodasmensagens.com/frases-efeito/" class="uri">https://www.mundodasmensagens.com/frases-efeito/</a><a href="nota-de-roda-pé.html#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>Frase retirada de: <a href="https://www.mundodasmensagens.com/frases-efeito/" class="uri">https://www.mundodasmensagens.com/frases-efeito/</a><a href="nota-de-roda-pé.html#fnref4" class="footnote-back">↩</a></p></li>
-</ol>
+<div id="pre-requisitos" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> Pre-requisitos</h1>
+<p>Este livro está baseado em <code>RMarkdown</code> e talvez você tenha que instalar alguma coisa de <code>LaTex</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># todo desenvolver sobre pacotes a serem usados</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># instalando</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># &#39;knitr&#39;</span></a></code></pre></div>
+<p>Você peceberá que outras bibliotecas tbm serão instaladas.</p>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="crossRef.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="referências-bibliográficas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="AntesComecar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

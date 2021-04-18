@@ -1,33 +1,4 @@
-## Sobre o *Markdown*  {#markdown}
-
-*Markdown* é uma linguagem simples para formatação de textos. A ideia é que a partir dessa linguagem você possa transformar seu texto em um documento de *Word*, *HTML* ou até mesmo *PDF*, tornando a formatação do texto mais simples e **objetiva**.
-
-## Sobre o *RMarkdown*  {#rmarkdown}
-
-O *RMarkdown*, é um pacote que nos possibilita integrar a linguagem *R* com o *Markdown*. Dessa simples junção, podemos criar documentos ao mesmo tempo em que desenvolvemos nossas análises. Ou seja, ao mesmo tempo em que estamos analisando dados com *R* já podemos ir criando um relatório, por exemplo.  
-
-Com o *RMarkdown*, pode-se também elaborar outros tipos de documentos, como apresentações. Vamos ver primeiro como elaborar documentos de texto e, mais à frente, vemos como trabalhar com apresentações.  
-  
-## Vantagens  
-
-Usar o *RMarkdown* traz várias vangens, das quais cito:
-- Fomenta a reproducibilidade;  
-- Permite que mais de uma pessoa colabore em relatórios (usando *Git* e *GitHub*);  
-- Permite apresentar o código usado, caso isso seja pretinente;  
-- Facilita a criação e incorporação de gráficos/tabelas e dados do projeto ao relatório;  
-
-## Instalação
-
-Para trabalhar com o *RMarkdown*, basta instalar a biblioteca de mesmo nome:  
-```{r, eval=FALSE}
-# instalando
-# install.packages("rmarkdown", dependencies = TRUE)
-library(rmarkdown)
-```  
-
-Você peceberá que outras bibliotecas tbm serão instaladas.  
-
-## Antes de começar  {#AntesComecar}
+# Antes de começar  {#AntesComecar}
 
 Alguns pontos básicos:  
   
